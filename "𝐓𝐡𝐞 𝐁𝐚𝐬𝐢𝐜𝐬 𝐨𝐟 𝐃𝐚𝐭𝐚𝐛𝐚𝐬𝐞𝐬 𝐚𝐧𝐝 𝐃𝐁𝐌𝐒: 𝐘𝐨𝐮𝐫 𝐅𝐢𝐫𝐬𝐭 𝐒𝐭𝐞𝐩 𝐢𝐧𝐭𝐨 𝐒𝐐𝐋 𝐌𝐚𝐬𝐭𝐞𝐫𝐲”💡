@@ -1,0 +1,14 @@
+Before we get into SQL and MySQL, let’s take a step back and understand the foundation:
+*𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞: A database is an organized collection of data so that it can be easily accessed. But how do we interact with databases? That’s where a 𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐒𝐲𝐬𝐭𝐞𝐦 (𝐃𝐁𝐌𝐒) comes in! A 𝐃𝐁𝐌𝐒 is the software that allows us to create, manage, and operate databases. There are different types of DBMS, including:
+
+*𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧𝐚𝐥 𝐃𝐁𝐌𝐒 (𝐑𝐃𝐁𝐌𝐒): Data stored in tables with relationships between them. Ex: 𝐌𝐲𝐒𝐐𝐋, 𝐒𝐐𝐋 𝐒𝐞𝐫𝐯𝐞𝐫, and 𝐏𝐨𝐬𝐭𝐠𝐫𝐞𝐒𝐐𝐋.
+
+*𝗡𝗼𝗦𝗤𝗟 𝗗𝗕𝗠𝗦: For unstructured or semi-structured data. Ex: 𝗠𝗼𝗻𝗴𝗼𝗗𝗯 and 𝗖𝗮𝘀𝘀𝗮𝗻𝗱𝗿𝗮.
+
+*𝐖𝐡𝐚𝐭’𝐬 𝐒𝐐𝐋? It stands for structured query language, it’s used to 𝗜𝗡𝗦𝗘𝗥𝗧, 𝗨𝗣𝗗𝗔𝗧𝗘, and 𝗗𝗘𝗟𝗘𝗧𝗘 Data in a table or relational database.
+
+*𝗦𝗤𝗟 𝗩𝗦 𝗠𝘆𝗦𝗤𝗟: SQL is a language used to perform 𝗖𝗥𝗨𝗗 (Create, Read, Update, Delete) operations in Relational DB, while MySQL is the RDBMS that uses SQL.
+
+𝗗𝗮𝘁𝗮𝗯𝗮𝘀𝗲𝘀 and 𝗗𝗕𝗠𝗦 are the foundation of data management, but this is just the beginning. Understanding how to interact with these systems is key, and that's where SQL comes in.
+
+In the next post, we'll dive into SQL commands, starting with the essentials like SELECT, INSERT, UPDATE, and DELETE—the core tools that will help you unlock the full potential of databases.
