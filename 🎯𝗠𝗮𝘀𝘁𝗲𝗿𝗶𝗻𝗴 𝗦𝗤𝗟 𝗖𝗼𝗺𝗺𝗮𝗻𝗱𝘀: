@@ -1,0 +1,64 @@
+1.SQL “CREATE” command: used for creating tables, and databases.
+syntax:
+       CREATE  table table_name(
+       column1 data type,
+       column2 data type,
+       ......);
+Example: Let's create a table called customers, which stores simple information
+about customers in an e-commerce scenario.
+       CREATE TABLE customers (
+       customer_id INT PRIMARY KEY,
+       name VARCHAR(50),
+       email VARCHAR(100),
+       registration_date DATE
+      );
+2.SQL “INSERT” into command: used to insert new data into tables:
+Syntax:
+       INSERT into table name (column1, column2,...)
+       VALUES(value1,value2,...);
+Example:
+Now, let's insert some sample data into the customers table.
+        INSERT INTO customers (customer_id, name, email, registration_date)
+        VALUES (1, 'Alice Johnson', 'alice@example.com', '2024-09-20'),
+               (2, 'Bob Smith', 'bob@example.com', '2024-09-21'),
+               (3, 'Charlie Brown', 'charlie@example.com', '2024-09-22');
+3.SQL “SELECT” command: used to retrieve data from tables:
+Syntax:
+       SELECT column1, column2,...
+       FROM table name;
+To select the complete table, we use the asterisk sign(*)
+        SELECT * FROM table name;
+Example:
+        SELECT * FROM customers;
+**There is also the SQL SELECT DISTINCT command: used to return only unique
+values from a specified column in a table.
+Syntax:
+         SELECT DISTINCT column_name
+         FROM table name;
+4.SQL “UPDATE” command: used to modify existing data in a table:
+Syntax:
+       UPDATE table name
+       SET column_x=value_x,
+       column_y=value_y,....
+       WHERE column_z= value_z ;
+Example: Let’s for example update Bob Smith’s email address:
+        UPDATE customers
+        SET email = 'bob.smith@example.com'
+        WHERE customer_id = 2;
+**”WHERE” used to filter records(rows) based on the given condition.
+5.SQL “DELETE” command removes or deletes data from a table.
+Syntax:
+       DELETE FROM table name
+       WHERE condition;
+Example: Let’s say our customer Charlie Brown decided to delete his account, so
+we can remove his record.
+       DELETE FROM customers
+       WHERE customer_id = 3;
+##In Conclusion:
+Mastering these essential SQL commands—CREATE, INSERT, SELECT, UPDATE,
+and DELETE—is the foundation of working with databases. With these commands,
+you can effectively manage data, ensuring your database is organized and up to
+date.
+Stay tuned for more advanced SQL topics in future posts. Connect with me on
+LinkedIn
+https://www.linkedin.com/in/mokhtarihalima/ for the latest updates and insights!
