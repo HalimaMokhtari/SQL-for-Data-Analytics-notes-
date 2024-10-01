@@ -1,0 +1,53 @@
+𝟏. 𝐖𝐡𝐚𝐭 𝐢𝐬 𝐚 𝐓𝐫𝐚𝐧𝐬𝐚𝐜𝐭𝐢𝐨𝐧?
+A transaction is a sequence of SQL commands that are treated as a single unit. If all commands
+in the transaction are successful, the changes are saved. If something goes wrong, we can undo
+the changes.
+𝟐. 𝐂𝐎𝐌𝐌𝐈𝐓:The
+COMMIT command is used to save the changes made by the current transaction to the database.
+Once a COMMIT is issued, the changes are permanent and visible to all users.
+𝐒𝐲𝐧𝐭𝐚𝐱:
+COMMIT;
+𝐄𝐱𝐚𝐦𝐩𝐥𝐞:Let’s insert a new customer into the customers table.
+           𝐈𝐍𝐒𝐄𝐑𝐓 𝐈𝐍𝐓𝐎 𝐜𝐮𝐬𝐭𝐨𝐦𝐞𝐫𝐬 (𝐜𝐮𝐬𝐭𝐨𝐦𝐞𝐫_𝐢𝐝, 𝐧𝐚𝐦𝐞, 𝐞𝐦𝐚𝐢𝐥, 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧_𝐝𝐚𝐭𝐞)
+           𝐕𝐀𝐋𝐔𝐄𝐒( 𝟒, "𝐃𝐚𝐧𝐢𝐚𝐥 𝐆𝐫𝐞𝐞𝐧", "𝐝𝐚𝐧𝐢𝐚𝐥@𝐞𝐱𝐚𝐦𝐩𝐥𝐞.𝐜𝐨𝐦", "𝟐𝟎𝟐𝟒-𝟎𝟗-𝟐𝟔");
+           𝐂𝐎𝐌𝐌𝐈𝐓;
+In this case, the new customer "Daniel Green" is added to the customers table, and the changes
+are saved once we execute 𝐂𝐎𝐌𝐌𝐈𝐓.
+𝟑. 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓:
+In some database systems (like MySQL), 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓 mode is enabled by default. This
+means that every individual SQL statement is automatically treated as a transaction and is
+committed immediately after execution. If AUTOCOMMIT is on, there’s no need to manually
+issue the  𝐂𝐎𝐌𝐌𝐈𝐓 command.
+**𝐓𝐨 𝐜𝐡𝐞𝐜𝐤 𝐭𝐡𝐞 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓 𝐬𝐭𝐚𝐭𝐮𝐬 𝐢𝐧 𝐌𝐲𝐒𝐐𝐋:
+                    𝐒𝐄𝐋𝐄𝐂𝐓 @@𝐚𝐮𝐭𝐨𝐜𝐨𝐦𝐦𝐢𝐭;
+**𝐓𝐨 𝐝𝐢𝐬𝐚𝐛𝐥𝐞 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓:
+               𝐒𝐄𝐓 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓 = 𝟎;
+      --𝐎𝐑
+               𝐒𝐄𝐓 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓= 𝐎𝐅𝐅;
+When AUTOCOMMIT is disabled, changes won’t be saved until you explicitly issue a
+COMMIT command.
+𝟒. 𝐑𝐎𝐋𝐋𝐁𝐀𝐂𝐊:
+The 𝐑𝐎𝐋𝐋𝐁𝐀𝐂𝐊 command undoes any changes made during the current transaction. This is
+useful when an error occurs, and we need to revert the database to its previous state.
+           𝐑𝐎𝐋𝐋𝐁𝐀𝐂𝐊;
+𝐄𝐱𝐚𝐦𝐩𝐥𝐞:Let's assume we mistakenly insert a customer with the wrong email:
+           𝐈𝐍𝐒𝐄𝐑𝐓 𝐈𝐍𝐓𝐎 𝐜𝐮𝐬𝐭𝐨𝐦𝐞𝐫𝐬 (𝐜𝐮𝐬𝐭𝐨𝐦𝐞𝐫_𝐢𝐝, 𝐧𝐚𝐦𝐞, 𝐞𝐦𝐚𝐢𝐥, 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧_𝐝𝐚𝐭𝐞)
+           𝐕𝐀𝐋𝐔𝐄𝐒( 𝟓, "𝐄𝐯𝐞 𝐀𝐝𝐚𝐦𝐬", "𝐞𝐰𝐚𝐦𝐬@𝐞𝐱𝐚𝐦𝐩𝐥𝐞.𝐜𝐨𝐦", "𝟐𝟎𝟐𝟒-𝟎𝟗-𝟐𝟕");
+           --Oops! Realized we inserted the wrong email. Let's undo this.
+           𝐑𝐎𝐋𝐋𝐁𝐀𝐂𝐊;
+Here, the ROLLBACK command will undo the addition of "Eve Adams" to the customers table, and her
+record will not be saved.
+**𝐖𝐡𝐲 𝐚𝐫𝐞 𝐭𝐡𝐞𝐬𝐞 𝐢𝐦𝐩𝐨𝐫𝐭𝐚𝐧𝐭?
+**𝐂𝐎𝐌𝐌𝐈𝐓 ensures that your changes are permanently saved to the database.
+**𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓 handles transactions automatically, which can be useful for single
+operations.
+**𝐑𝐎𝐋𝐋𝐁𝐀𝐂𝐊 gives you the ability to undo any mistakes and keep your database consistent.
+**𝐈𝐧 𝐂𝐨𝐧𝐜𝐥𝐮𝐬𝐢𝐨𝐧:
+Understanding how to control database transactions with 𝐂𝐎𝐌𝐌𝐈𝐓, 𝐀𝐔𝐓𝐎𝐂𝐎𝐌𝐌𝐈𝐓, and
+𝐑𝐎𝐋𝐋𝐁𝐀𝐂𝐊 is essential for ensuring that your data remains accurate and consistent. These
+commands give you full control over your database changes, whether you’re saving them or
+undoing mistakes. As you continue to work with more complex databases, mastering transactions
+will help you manage data efficiently and confidently.
+**Stay tuned for more advanced SQL topics in future posts. Connect with me on LinkedIn
+https://www.linkedin.com/in/mokhtarihalima/ for the latest updates and insights!
+
